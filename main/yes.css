@@ -1,0 +1,26 @@
+
+
+
+.kilig img{
+    width: 200px;
+}
+
+.kilig{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:3em;
+}
+
+body{
+    
+    background: #0b1522;
+}
+
+.crush{
+    font-size: 15px;
+    margin-bottom: 2em;
+    font-weight: bold;
+    color: rgb(0, 255, 42);
+}
