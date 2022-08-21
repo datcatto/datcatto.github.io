@@ -10,7 +10,7 @@
 }
 
 body {
-    background: #eadfcd;
+    background: #0b1522;
 
 }
 
@@ -32,7 +32,7 @@ section .leftBox
 section .leftBox .content
 {
     color: #fff;
-    background: linear-gradient(to bottom, #a30404,#ff0606);
+    background: linear-gradient(to bottom, #1e8015,#06ff1b);
     padding: 40px;
     transition: .5s;
 }
@@ -68,7 +68,7 @@ img {
 
 .navbar {
     box-shadow: var(--box-shadow);
-    background: linear-gradient(to right, #a30404,#ff0606);
+    background: linear-gradient(to right, #1e8015,#06ff1b);
 }
 
 .logo {
@@ -118,7 +118,7 @@ img {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(133, 9, 9, 0.452);
+    background-color: linear-gradient(to right,#0c3309,#037a0d);
     z-index: -1;
 }
 
@@ -279,7 +279,7 @@ form .form-control {
 .footer-top {
     padding-top: 90px;
     padding-bottom: 90px;
-    background-color: var(--dark);
+    background: linear-gradient(to right, #0c3309,#037a0d);
 }
 
 .footer-top a {
