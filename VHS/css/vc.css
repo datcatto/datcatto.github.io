@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+h1{
+    color: #330066;
+    font-family: 'Raleway' ,sans-serif;
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 72px;
+    text-transform: uppercase;
+    background-color: #66FF00;
+    letter-spacing: -2px;
+    margin: 30px 0 50px;
+}
+
+.gallery{
+    align-content: center;
+    margin: 10px 110px;
+}
+
+.gallery img{
+    width: 230px;
+    padding: 5px;
+    filter: grayscale(90%);
+    transition: 1s;
+
+}
+
+.gallery img:hover{
+    filter:grayscale(0%);
+    transform: scale(1.1);
+}
+
