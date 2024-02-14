@@ -16,8 +16,9 @@ noBtn.addEventListener("mouseover", () =>{
     const maxY = window.innerHeight - noBtnRect.height;
 
     const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxXY);
+    const randomY = Math.floor(Math.random() * maxY);
 
     noBtn.style.left = randomX + "px";
     noBtn.style.top = randomY + "px";
 })
+
