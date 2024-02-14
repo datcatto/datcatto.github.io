@@ -12,6 +12,7 @@ body{
     min-height: 100vh;
     background-image: url('img/bg.jpg');
     background-repeat: no-repeat;
+    background-size:cover;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .gif{
