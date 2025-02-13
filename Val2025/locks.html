@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Surprise</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -53,6 +54,7 @@
 
         .letter {
             position: absolute;
+            font-family: 'Dancing Script', cursive;
             width: 90%;
             height: 80%;
             background: white;
@@ -60,7 +62,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 23px;
             font-weight: bold;
             top: 10%;
             left: 5%;
@@ -221,6 +223,7 @@
         }
         document.addEventListener("DOMContentLoaded", function () {
             let audio = document.getElementById("bgMusic");
+            audio.currentTime = 33; 
             audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
         });
 
@@ -232,7 +235,8 @@
         }
 
         function loveYou() {
-            document.getElementById("letter").innerText = "I love you so much!! 💖";
+            document.getElementById("letter").innerText = "I love you so much!! 💖";    
+            letter.style.fontFamily = "'Dancing Script', cursive";
             document.getElementById("choiceButtons").innerHTML = `
                 <button class="btn" onclick="nextPage()">Love Letter 💌</button>
             `;
