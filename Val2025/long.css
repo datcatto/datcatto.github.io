@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffc0cb;
+    font-family: Arial, sans-serif;
+}
+.playlist {
+    position: relative;
+    width: 352px;
+    height: 392px;
+}
+.playlist iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.question-box {
+    background: #ffadc6;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.counter-box {
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #ff4d6d;
+}
+
+.time-details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.time-details div {
+    font-size: 24px;
+    color: #ff4d6d;
+}
+
+p {
+    font-size: 14px;
+    color: #ff4d6d;
+}
+
+.love-button {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.footer-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.icons {
+    font-size: 24px;
+    margin-top: 10px;
+}
