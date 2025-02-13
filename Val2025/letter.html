@@ -28,23 +28,25 @@
                 text-align: center;
                 flex-direction: column;
             }
+            @media (max-width: 768px) {
+                .letter-container {
+                    background: rgba(255, 255, 240, 0.95); /* Soft parchment color */
+                    margin-top: 5%;
+                    padding: 20px;
+                    width: 80%;
+                    max-width: 600px;
+                    max-height: 70vh; /* Limits height to prevent overflow */
+                    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+                    border-radius: 10px;
+                    border: 2px solid #d63384;
+                    position: relative;
+                    animation: fadeIn 1.5s ease-in-out;
+                    font-size: 1rem; /* Reduce font size */
 
-            .letter-container {
-                background: rgba(255, 255, 240, 0.95); /* Soft parchment color */
-                margin-top: 5%;
-                padding: 20px;
-                width: 80%;
-                max-width: 600px;
-                max-height: 80vh; /* Limits height to prevent overflow */
-                box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-                border-radius: 10px;
-                border: 2px solid #d63384;
-                position: relative;
-                animation: fadeIn 1.5s ease-in-out;
-
-                overflow-y: auto; /* Enables vertical scrolling */
-                scrollbar-width: none; /* Hides scrollbar for Firefox */
-                -ms-overflow-style: none; /* Hides scrollbar for IE/Edge */
+                    overflow-y: auto; /* Enables vertical scrolling */
+                    scrollbar-width: none; /* Hides scrollbar for Firefox */
+                    -ms-overflow-style: none; /* Hides scrollbar for IE/Edge */
+                }
             }
             /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
             .letter-container::-webkit-scrollbar {

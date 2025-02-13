@@ -22,9 +22,12 @@
             height: 100vh;
         }
 
-        h1 {
-            color: #d63384;
-            margin-bottom: 20px;
+        @media (max-width: 768px) {
+            .locks-title {
+                font-size: 1.5rem;
+                text-align: center;
+                word-wrap: break-word;
+            }
         }
 
         .envelope-container {
@@ -142,7 +145,7 @@
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s;   
 }
 
 .back-btn:hover {
