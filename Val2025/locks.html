@@ -126,9 +126,16 @@
     .back-btn:hover {
         background: #b0256a;
     }
+    h1 {
+    font-size: 20px; /* Adjust for smaller screens */
+    white-space: nowrap; /* Prevents breaking into multiple lines */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Optional: Adds "..." if text overflows */
+    max-width: 90%; /* Ensures it fits within smaller screens */
+}
     </style>
 </head>
-<button class="back-btn" onclick="goBack()">⬅ Back</button>
+<button class="back-btn" onclick="goBack()">⬅</button>
 <audio id="bgMusic" loop style="display: none;">
     <source src="sound/girl in red - we fell in love in october.mp3" type="audio/mpeg">
 </audio>
