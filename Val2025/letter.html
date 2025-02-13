@@ -1,117 +1,112 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Love Letter to You 💖</title>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love Letter to You 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap');
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
+        body {
+            background: linear-gradient(rgba(255, 192, 203, 0.5), rgba(255, 105, 180, 0.5));
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .letter-container {
+            background: rgba(255, 255, 240, 0.95);
+            margin-top: 5%;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border: 2px solid #d63384;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+            font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .letter-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .letter-container::before {
+            content: "💌";
+            font-size: 40px;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: #b0256a;
+            margin-top: 10px;
+        }
+
+        p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: black;
+            line-height: 1.6;
+            padding: 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
             }
-
-            body {
-                background: linear-gradient(rgba(255, 192, 203, 0.5), rgba(255, 105, 180, 0.5));    
-                background-size: cover;
-                background-position: center;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: auto;
-                text-align: center;
-                flex-direction: column;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            @media (max-width: 768px) {
-                .letter-container {
-                    background: rgba(255, 255, 240, 0.95); /* Soft parchment color */
-                    margin-top: 5%;
-                    padding: 20px;
-                    width: 80%;
-                    max-width: 600px;
-                    max-height: 70vh; /* Limits height to prevent overflow */
-                    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-                    border-radius: 10px;
-                    border: 2px solid #d63384;
-                    position: relative;
-                    animation: fadeIn 1.5s ease-in-out;
-                    font-size: 1rem; /* Reduce font size */
+        }
 
-                    overflow-y: auto; /* Enables vertical scrolling */
-                    scrollbar-width: none; /* Hides scrollbar for Firefox */
-                    -ms-overflow-style: none; /* Hides scrollbar for IE/Edge */
-                }
-            }
-            /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
-            .letter-container::-webkit-scrollbar {
-                display: none;
-            }
+        .back-btn {
+            position: relative;
+            margin-bottom: 10px;
+            margin-right: 80%;
+            background: #d63384;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-            .letter-container::before {
-                content: "💌";
-                font-size: 40px;
-                position: absolute;
-                padding-top: 10px;
-                top: -15px;
-                left: 50%;  
-                transform: translateX(-50%);
-            }
-
-            h1 {
-                font-family: 'Dancing Script', cursive;
-                font-size: 32px;
-                color: #b0256a;
-                margin-top: 10px;
-            }
-
-            p {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 24px;
-                color: black;
-                line-height: 1.6;
-                padding: 10px;
-            }
-
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(10px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            .back-btn {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        background: #d63384;
-        color: white;
-        border: none;
-        padding: 8px 15px;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .back-btn:hover {
-        background: #b0256a;
-    }
-
-        </style>
-    </head>
-    <body>
-        <!-- Back Button -->
-        <button class="back-btn" onclick="goBack()">⬅ Back</button>
-        <audio id="bgMusic" loop style="display: none;">
+        .back-btn:hover {
+            background: #b0256a;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    <audio id="bgMusic" loop style="display: none;">
         <source src="sound/Strawberries & Cigarettes.mp3" type="audio/mpeg">
     </audio>
 
@@ -122,26 +117,21 @@
         });
 
         function goBack() {
-                window.history.back(); // Goes to the previous page
-            }
+            window.history.back();
+        }
     </script>
 
-
-        <div class="letter-container">
-            <h1>To My Dearest Sae 🍓</h1>
-
-            <p>
-                To quote one of Shakespere's famous line from Sonnet 18, 
-                <b><i>"Shall I compare thee to a summer’s day? Thou art more lovely and more temperate,"  </i></b>
-                I too for one refuse to compare thy beauty to summer's day for such comparison would be unjust to what gentle warmth and timeless beauty thou show.
-                A summer's day may boast of it's golden light, yet in thy presence, its brilliance fades to naught.  
-                
-                To love thee for eternity is what I humbly seek. I would hold thy hand and cherish all our memories most fondly.
-                ’Tis a declaration of love to thee—an eternal flame of love, ever burning to show my affection.
-
-
-            </p>
-        </div>
-
-    </body> 
-    </html>
+    <div class="letter-container">
+        <h1>To My Dearest Sae 🍓</h1>
+        <p>
+            To quote one of Shakespeare's famous lines from Sonnet 18, 
+            <b><i>"Shall I compare thee to a summer’s day? Thou art more lovely and more temperate,"</i></b>
+            I too refuse to compare thy beauty to summer’s day, for such comparison would be unjust to what gentle warmth and timeless beauty thou show.
+            A summer’s day may boast of its golden light, yet in thy presence, its brilliance fades to naught.  
+            
+            To love thee for eternity is what I humbly seek. I would hold thy hand and cherish all our memories most fondly.
+            ’Tis a declaration of love to thee—an eternal flame of love, ever burning to show my affection.
+        </p>
+    </div>
+</body> 
+</html>

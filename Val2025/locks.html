@@ -22,14 +22,6 @@
             height: 100vh;
         }
 
-        @media (max-width: 768px) {
-            .locks-title {
-                font-size: 1.5rem;
-                text-align: center;
-                word-wrap: break-word;
-            }
-        }
-
         .envelope-container {
             position: relative;
             width: 300px;
@@ -113,52 +105,34 @@
             gap: 20px;
         }
 
-        #yesBtn {
-            font-size: 16px;
-            transition: transform 0.3s ease-in-out;
-        }
-
         .hidden {
             display: none;
         }
-
-    #yesBtn {
+        .back-btn {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        background: #d63384;
+        color: white;
+        border: none;
+        padding: 8px 15px;
         font-size: 16px;
-        width: 100%;
-        padding: 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        z-index: 1000; /* Ensure it's always visible */
     }
 
-    #noBtn {
-        font-size: 16px;
-        width: 100%;
-        padding: 12px;
+    .back-btn:hover {
+        background: #b0256a;
     }
-
-.back-btn {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #d63384;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;   
-}
-
-.back-btn:hover {
-    background: #b0256a;
-}
-
     </style>
 </head>
+<button class="back-btn" onclick="goBack()">⬅ Back</button>
+<audio id="bgMusic" loop style="display: none;">
+    <source src="sound/girl in red - we fell in love in october.mp3" type="audio/mpeg">
+</audio>
 <body>
-
-    <!-- Back Button -->
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
-
     <h1>🔒 Unlock the Valentine's Letter! 🔓</h1>
     <div class="envelope-container">
         <div class="letter" id="letter">💌 Sarah will you be my Valentine?</div>
@@ -166,7 +140,6 @@
         <div class="envelope-body" id="envelopeBody"></div>
     </div>
 
-    <!-- Questions Section -->
     <div class="question-box" id="q1">
         <h3>1️⃣ When did we first meet?</h3>
         <button class="btn" onclick="unlock(1, 'heart')">December 4, 2022</button>
@@ -174,7 +147,7 @@
     </div>
 
     <div class="question-box hidden" id="q2">
-        <h3>2️⃣ What is the date of our first convo</h3>
+        <h3>2️⃣ What is the date of our first convo?</h3>
         <button class="btn" onclick="wrongAnswer()">October 6, 2021 📅</button>
         <button class="btn" onclick="unlock(2, 'oct7')">October 7, 2021 📅</button>
         <button class="btn" onclick="wrongAnswer()">October 8, 2021 📅</button>
@@ -191,10 +164,6 @@
         <button class="btn" id="noBtn" onclick="noClicked()">No ❌</button>
     </div>
 
-    <audio id="bgMusic" loop style="display: none;">
-        <source src="sound/girl in red - we fell in love in october.mp3" type="audio/mpeg">
-    </audio>
-
     <script>
         let locks = {
             1: { correctAnswer: "heart", nextQuestion: "q2" },
@@ -209,29 +178,14 @@
                 if (locks[lockNumber].nextQuestion) {
                     document.getElementById(locks[lockNumber].nextQuestion).classList.remove("hidden");
                 } else {
-                    
                     document.getElementById("flap").style.transform = "rotateX(180deg)";
-                    
+                    setTimeout(() => document.getElementById("flap").style.opacity = "0", 1000);
                     setTimeout(() => {
-                        
-                        document.getElementById("flap").style.opacity = "0";
-                    }, 1000); 
-
-                    setTimeout(() => {
-                        
                         document.getElementById("letter").style.opacity = "1";
                         document.getElementById("letter").style.transform = "translateY(-10px)";
                     }, 1200);
-
-                    setTimeout(() => {
-                     
-                        document.getElementById("envelopeBody").style.opacity = "0";
-                    }, 1500);
-
-                 
                     document.getElementById("choiceButtons").classList.remove("hidden");
                 }
-
                 document.getElementById("q" + lockNumber).classList.add("hidden");
             } else {
                 alert("Oops! Try again.");
@@ -245,20 +199,29 @@
         function noClicked() {
             let noBtn = document.getElementById("noBtn");
             let yesBtn = document.getElementById("yesBtn");
-
             noClickCount++;
-
             if (noClickCount === 1) {
                 noBtn.innerText = "Are you sure?";
                 yesBtn.style.transform = "scale(1.3)";
             } else if (noClickCount === 2) {
                 noBtn.innerText = "Change your mind?";
                 yesBtn.style.transform = "scale(1.6)";
-            } else if (noClickCount === 3) {
+            } else {
                 noBtn.innerText = "Yes 💖";
                 yesBtn.innerText = "Yes 💖";
                 yesBtn.style.transform = "scale(1.9)";
             }
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            let audio = document.getElementById("bgMusic");
+            audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
+        });
+
+        function goBack() {
+            window.history.back();
+        }   
+        function goBack() {
+        window.history.back(); // Goes to the previous page
         }
 
         function loveYou() {
@@ -269,22 +232,8 @@
         }
 
         function nextPage() {
-            window.location.href = "letter.html";
+            window.location.href = "letter.html"; // Ensure letter.html is in the correct directory
         }
-
-        function goBack() {
-            window.history.back(); // Goes to the previous page
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-        let audio = document.getElementById("bgMusic");
-        
-        
-        audio.currentTime = 30; 
-        
-        
-        audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
-        });
-    </script>
-
+        </script>
 </body>
 </html>
