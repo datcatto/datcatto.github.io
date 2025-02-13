@@ -11,12 +11,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap');
 
 
-
-
-
-        
-
-
         * {
             margin: 0;
             padding: 0;
@@ -84,10 +78,22 @@
     </style>
 </head>
 <body>
+    <audio id="bgMusic" loop style="display: none;">
+    <source src="sound/girl in red - we fell in love in october.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let audio = document.getElementById("bgMusic");
+        audio.currentTime = 30; // Change this to the desired start time (in seconds)
+        audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
+    });
+</script>
+
 
     <div class="letter-container">
         <h1>To My Dearest Sae 🍓</h1>
-        
+
         <p>
             To quote one of Shakespere's famous line from Sonnet 18, 
             <b><i>"Shall I compare thee to a summer’s day? Thou art more lovely and more temperate,"  </i></b>

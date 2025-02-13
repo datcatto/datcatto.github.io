@@ -124,7 +124,6 @@
 <body>
 
     <h1>🔒 Unlock the Valentine's Letter! 🔓</h1>
-
     <div class="envelope-container">
         <div class="letter" id="letter">💌 Sarah will you be my Valentine?</div>
         <div class="flap" id="flap"></div>
@@ -156,7 +155,20 @@
         <button class="btn" id="noBtn" onclick="noClicked()">No ❌</button>
     </div>
 
+    <audio id="bgMusic" loop style="display: none;">
+        <source src="sound/girl in red - we fell in love in october.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        let audio = document.getElementById("bgMusic");
+        
+        // Set the timestamp where you want the song to start (in seconds)
+        audio.currentTime = 30; // Change this value to your desired start time
+        
+        // Attempt to play the audio (some browsers may block autoplay)
+        audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
+        });
         let locks = {
             1: { correctAnswer: "heart", nextQuestion: "q2" },
             2: { correctAnswer: "oct7", nextQuestion: "q3" },
