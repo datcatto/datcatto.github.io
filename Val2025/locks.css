@@ -1,0 +1,72 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffe6f2;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Envelope Animation */
+.envelope {
+    width: 200px;
+    height: 150px;
+    background: pink;
+    position: relative;
+    margin: auto;
+    transition: 0.5s ease-in-out;
+    transform-origin: top;
+}
+
+.flap {
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid pink;
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    transition: 0.5s ease-in-out;
+}
+
+.letter {
+    width: 180px;
+    height: 100px;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#yes-btn {
+    background: #ff4d4d;
+    color: white;
+}
+
+#no-btn {
+    background: #666;
+    color: white;
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
+}

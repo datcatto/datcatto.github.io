@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffebf2;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+
+        .envelope-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+        }
+
+        .envelope-body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #d63384;
+            border-radius: 10px;
+            z-index: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .flap {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: #b0256a;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            top: 0;
+            left: 0;
+            transform-origin: top;
+            transition: transform 1s ease-in-out;
+            z-index: 2;
+        }
+
+        .letter {
+            position: absolute;
+            width: 90%;
+            height: 80%;
+            background: white;
+            border: 2px solid #d63384;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            top: 10%;
+            left: 5%;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .question-box {
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff;
+            border: 2px solid #d63384;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background: #d63384;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #b0256a;
+        }
+
+        .choice-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #yesBtn {
+            font-size: 16px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>🔒 Unlock the Valentine's Letter! 🔓</h1>
+
+    <div class="envelope-container">
+        <div class="letter" id="letter">💌 Sarah will you be my Valentine?</div>
+        <div class="flap" id="flap"></div>
+        <div class="envelope-body" id="envelopeBody"></div>
+    </div>
+
+    <!-- Questions Section -->
+    <div class="question-box" id="q1">
+        <h3>1️⃣ When did we first meet?</h3>
+        <button class="btn" onclick="unlock(1, 'heart')">December 4, 2022</button>
+        <button class="btn" onclick="wrongAnswer()">December 6, 2022</button>
+    </div>
+
+    <div class="question-box hidden" id="q2">
+        <h3>2️⃣ What is the date of our first convo</h3>
+        <button class="btn" onclick="wrongAnswer()">October 6, 2021 📅</button>
+        <button class="btn" onclick="unlock(2, 'oct7')">October 7, 2021 📅</button>
+        <button class="btn" onclick="wrongAnswer()">October 8, 2021 📅</button>
+    </div>
+
+    <div class="question-box hidden" id="q3">
+        <h3>3️⃣ What flower is most associated with love?</h3>
+        <button class="btn" onclick="unlock(3, 'rose')">Rose 🌹</button>
+        <button class="btn" onclick="wrongAnswer()">Tulip 🌷</button>
+    </div>
+
+    <div class="choice-container hidden" id="choiceButtons">
+        <button class="btn" id="yesBtn" onclick="loveYou()">Yes 💖</button>
+        <button class="btn" id="noBtn" onclick="noClicked()">No ❌</button>
+    </div>
+
+    <script>
+        let locks = {
+            1: { correctAnswer: "heart", nextQuestion: "q2" },
+            2: { correctAnswer: "oct7", nextQuestion: "q3" },
+            3: { correctAnswer: "rose", nextQuestion: null }
+        };
+
+        let noClickCount = 0;
+
+        function unlock(lockNumber, answer) {
+            if (answer === locks[lockNumber].correctAnswer) {
+                if (locks[lockNumber].nextQuestion) {
+                    document.getElementById(locks[lockNumber].nextQuestion).classList.remove("hidden");
+                } else {
+                    // Open the flap
+                    document.getElementById("flap").style.transform = "rotateX(180deg)";
+                    
+                    setTimeout(() => {
+                        // Make the flap disappear
+                        document.getElementById("flap").style.opacity = "0";
+                    }, 1000); 
+
+                    setTimeout(() => {
+                        // Show the letter
+                        document.getElementById("letter").style.opacity = "1";
+                        document.getElementById("letter").style.transform = "translateY(-10px)";
+                    }, 1200);
+
+                    setTimeout(() => {
+                        // Fade out the envelope body
+                        document.getElementById("envelopeBody").style.opacity = "0";
+                    }, 1500);
+
+                    // Show Yes/No buttons
+                    document.getElementById("choiceButtons").classList.remove("hidden");
+                }
+
+                document.getElementById("q" + lockNumber).classList.add("hidden");
+            } else {
+                alert("Oops! Try again.");
+            }
+        }
+
+        function wrongAnswer() {
+            alert("Wrong answer! Think again. 💡");
+        }
+
+        function noClicked() {
+            let noBtn = document.getElementById("noBtn");
+            let yesBtn = document.getElementById("yesBtn");
+
+            noClickCount++;
+
+            if (noClickCount === 1) {
+                noBtn.innerText = "Are you sure?";
+                yesBtn.style.transform = "scale(1.3)";
+            } else if (noClickCount === 2) {
+                noBtn.innerText = "Change your mind?";
+                yesBtn.style.transform = "scale(1.6)";
+            } else if (noClickCount === 3) {
+                noBtn.innerText = "Yes 💖";
+                yesBtn.innerText = "Yes 💖";
+                yesBtn.style.transform = "scale(1.9)";
+            }
+        }
+
+        function loveYou() {
+            document.getElementById("letter").innerText = "I love you so much!! 💖";
+            document.getElementById("choiceButtons").innerHTML = `
+                <button class="btn" onclick="nextPage()">Love Letter 💌</button>
+            `;
+        }
+
+        function nextPage() {
+            window.location.href = "letter.html";
+        }
+
+    </script>
+
+</body>
+</html>
