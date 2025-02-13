@@ -163,10 +163,10 @@
         document.addEventListener("DOMContentLoaded", function () {
         let audio = document.getElementById("bgMusic");
         
-        // Set the timestamp where you want the song to start (in seconds)
-        audio.currentTime = 30; // Change this value to your desired start time
         
-        // Attempt to play the audio (some browsers may block autoplay)
+        audio.currentTime = 30; 
+        
+        
         audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
         });
         let locks = {
@@ -182,26 +182,26 @@
                 if (locks[lockNumber].nextQuestion) {
                     document.getElementById(locks[lockNumber].nextQuestion).classList.remove("hidden");
                 } else {
-                    // Open the flap
+                    
                     document.getElementById("flap").style.transform = "rotateX(180deg)";
                     
                     setTimeout(() => {
-                        // Make the flap disappear
+                        
                         document.getElementById("flap").style.opacity = "0";
                     }, 1000); 
 
                     setTimeout(() => {
-                        // Show the letter
+                        
                         document.getElementById("letter").style.opacity = "1";
                         document.getElementById("letter").style.transform = "translateY(-10px)";
                     }, 1200);
 
                     setTimeout(() => {
-                        // Fade out the envelope body
+                     
                         document.getElementById("envelopeBody").style.opacity = "0";
                     }, 1500);
 
-                    // Show Yes/No buttons
+                 
                     document.getElementById("choiceButtons").classList.remove("hidden");
                 }
 
