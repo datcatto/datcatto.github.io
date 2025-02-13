@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="long.css">
 </head>
 <body>
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
     <div class="container">
         <img src="img/ic1.jpg" alt="Profile" class="profile-pic">
         <img src="img/ic2.jpg" alt="Profile" class="profile-pic">
@@ -45,8 +47,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let audio = document.getElementById("bgMusic");
+            audio.currentTime = 40; 
             audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
         });
+        function goBack() {
+                window.history.back(); // Goes to the previous page
+            }
     </script>
 
     <script src="long.js"></script>
