@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="long.css">
 </head>
 <body>
-    <iframe src="music.html" style="display: none;" id="music-frame"></iframe>
     <div class="container">
         <img src="img/ic1.jpg" alt="Profile" class="profile-pic">
         <img src="img/ic2.jpg" alt="Profile" class="profile-pic">
@@ -39,6 +38,16 @@
 
         </div>
     </div>
+    <audio id="bgMusic" loop style="display: none;">
+        <source src="sound/wave to earth - seasons.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let audio = document.getElementById("bgMusic");
+            audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
+        });
+    </script>
 
     <script src="long.js"></script>
    

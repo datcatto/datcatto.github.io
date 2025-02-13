@@ -18,20 +18,20 @@
         }
 
         body {
-            background: linear-gradient(rgba(255, 192, 203, 0.5), rgba(255, 105, 180, 0.5)), 
-                        url('https://i.imgur.com/0jUUNCo.jpg'); /* Replace with your preferred background */
+            background: linear-gradient(rgba(255, 192, 203, 0.5), rgba(255, 105, 180, 0.5));    
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: auto;
             text-align: center;
+            flex-direction: column;
         }
 
         .letter-container {
             background: rgba(255, 255, 240, 0.95); /* Soft parchment color */
-            padding: 30px;
+            padding: 20px;
             width: 80%;
             max-width: 600px;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
@@ -79,13 +79,12 @@
 </head>
 <body>
     <audio id="bgMusic" loop style="display: none;">
-    <source src="sound/girl in red - we fell in love in october.mp3" type="audio/mpeg">
+    <source src="sound/Strawberries & Cigarettes.mp3" type="audio/mpeg">
 </audio>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let audio = document.getElementById("bgMusic");
-        audio.currentTime = 30; // Change this to the desired start time (in seconds)
         audio.play().catch(error => console.log("Autoplay failed due to browser restrictions."));
     });
 </script>
